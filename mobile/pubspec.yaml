@@ -1,0 +1,30 @@
+name: identity_verification_mobile
+description: Mobile client for the Identity Verification Management System
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.5.0
+
+dependencies:
+  flutter:
+    sdk: flutter
+  dio: ^5.7.0
+  provider: ^6.1.2
+  shared_preferences: ^2.3.4
+  image_picker: ^1.1.2
+  file_picker: ^8.1.7
+  cached_network_image: ^3.4.1
+  shimmer: ^3.0.0
+  intl: ^0.19.0
+  flutter_svg: ^2.0.16
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^5.0.0
+
+flutter:
+  uses-material-design: true
+  
+
