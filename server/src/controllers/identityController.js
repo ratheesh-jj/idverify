@@ -30,6 +30,8 @@ const createRequest = async (req, res) => {
     const aadhaarBackUrl = req.files.aadhaarBack ? req.files.aadhaarBack[0].path : null;
     const passportUrl = req.files.passport ? req.files.passport[0].path : null;
 
+    const isAdmin = req.user.role === 'admin';
+
     const identityRequest = await IdentityRequest.create({
       makerId: req.user._id,
       fullName,
@@ -41,7 +43,9 @@ const createRequest = async (req, res) => {
       aadhaarFrontUrl,
       aadhaarBackUrl,
       passportUrl,
-      status: 'pending',
+      status: isAdmin ? 'verified' : 'pending',
+      verifiedBy: isAdmin ? req.user._id : null,
+      verifiedAt: isAdmin ? new Date() : null,
     });
 
     // Audit log
